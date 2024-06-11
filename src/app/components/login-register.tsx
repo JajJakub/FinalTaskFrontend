@@ -21,24 +21,19 @@ function LoginRegister(mode: LoginRegisterProps) {
 
   return (
     <>
-      <FormControl variant="standard">
+      <FormControl variant="standard" required={true}>
         <InputLabel htmlFor="username">Username</InputLabel>
-        <Input id="username" defaultValue="ania5" name="username" />
+        <Input id="username" name="username" />
       </FormControl>
-      <FormControl variant="standard">
+      <FormControl variant="standard" required={true}>
         <InputLabel htmlFor="password">Password</InputLabel>
-        <Input
-          id="password"
-          defaultValue="zaq1@WSX!"
-          name="password"
-          type="password"
-        />
+        <Input id="password" name="password" type="password" />
       </FormControl>
 
       {authMode === AuthModeEnum.Register ? (
-        <FormControl variant="standard">
+        <FormControl variant="standard" required={true}>
           <InputLabel htmlFor="email">Email address</InputLabel>
-          <Input id="email" defaultValue="" name="email" type="email" />
+          <Input id="email" name="email" type="email" />
         </FormControl>
       ) : null}
 
