@@ -20,7 +20,7 @@ function Header() {
           mx: 2,
         }}
       >
-        <Box component="img" src="/src/app/assets/cooking.svg"></Box>
+        <Box component="img" src="./src/app/assets/cooking.svg"></Box>
         <Typography variant="h3" sx={{ marginLeft: 1, width: "max-content" }}>
           Recipe Book
         </Typography>
