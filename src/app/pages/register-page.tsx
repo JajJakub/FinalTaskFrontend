@@ -56,8 +56,15 @@ function RegisterPage() {
 
           setErrorMessages(errorData);
           setModalState(true);
+        } else if (error.request) {
+          setErrorMessages({
+            code: 0,
+            messages: [error.message, " No response from server."],
+          });
+          setModalState(true);
         } else {
-          console.error(error);
+          setErrorMessages({ code: 1, messages: error.message });
+          setModalState(true);
         }
       });
   };
