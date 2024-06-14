@@ -44,6 +44,7 @@ function RegisterPage() {
       .then((response) => {
         sessionStorage.setItem("sub", response.data._id);
         sessionStorage.setItem("token", response.data.access_token);
+        sessionStorage.setItem("user", response.data.username);
 
         navigate("/");
       })

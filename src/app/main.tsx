@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./pages/App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./main.css";
 import { ThemeProvider } from "@mui/material";
@@ -10,14 +9,18 @@ import "@fontsource/nunito-sans";
 import RegisterPage from "./pages/register-page.tsx";
 import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 import MainPage from "./pages/main-page.tsx";
+import RecipePage from "./pages/recipe-page.tsx";
+import NotFound from "./pages/not-found.tsx";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 if (process.env.NODE_ENV === "production") disableReactDevTools();
 
 const router = createBrowserRouter([
-  { path: "/", element: <MainPage />, errorElement: <App /> },
-  { path: "register", element: <RegisterPage /> },
+  { path: "/", element: <MainPage />, errorElement: <NotFound /> },
+  { path: "/register", element: <RegisterPage /> },
+  { path: "/error", element: <NotFound /> },
+  { path: "/recipe/:id", element: <RecipePage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

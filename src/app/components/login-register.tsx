@@ -31,10 +31,17 @@ function LoginRegister(mode: LoginRegisterProps) {
       </FormControl>
 
       {authMode === AuthModeEnum.Register ? (
-        <FormControl variant="standard" required={true}>
-          <InputLabel htmlFor="email">Email address</InputLabel>
-          <Input id="email" name="email" type="email" />
-        </FormControl>
+        <>
+          <FormControl variant="standard" required={true}>
+            <InputLabel htmlFor="retypePassword">Retype password</InputLabel>
+            <Input id="retypePassword" name="retypePassword" type="password" />
+          </FormControl>
+
+          <FormControl variant="standard" required={true}>
+            <InputLabel htmlFor="email">Email address</InputLabel>
+            <Input id="email" name="email" type="email" />
+          </FormControl>
+        </>
       ) : null}
 
       <Button type="submit">Confirm</Button>
