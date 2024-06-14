@@ -29,8 +29,7 @@ function DishTimeDifficulty({ recipe }: DishTimeDifficultyProps) {
 
         <Typography sx={{ alignSelf: "start" }}>Difficulty</Typography>
 
-        {/*recipe.difficulty*/}
-        <Box sx={{ justifySelf: "end" }}>Medium</Box>
+        <Box sx={{ justifySelf: "end" }}>{recipe.difficulty ?? "not set"}</Box>
       </Box>
     </>
   );

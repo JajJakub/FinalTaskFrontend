@@ -21,7 +21,8 @@ export type Recipe = {
   _id: string;
   name: string;
   cuisine: string;
+  difficulty: string;
   ingredients: Ingredient[];
-  steps: string[];
+  steps: string;
   comments: Comment[];
 };

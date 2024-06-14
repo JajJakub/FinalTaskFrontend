@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Box, Button, FormControl, Input, InputLabel } from "@mui/material";
-import { AuthModeEnum } from "../constants/login-register.enum.ts";
+import { AuthModeEnum } from "../constants/enums.ts";
 
 type LoginRegisterProps = {
   mode: (mode: AuthModeEnum) => void;

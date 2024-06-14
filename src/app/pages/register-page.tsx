@@ -2,7 +2,7 @@ import Header from "../components/header.tsx";
 import { Box, Container, Modal, Typography } from "@mui/material";
 import LoginRegister from "../components/login-register.tsx";
 import React, { useState } from "react";
-import { AuthModeEnum } from "../constants/login-register.enum.ts";
+import { AuthModeEnum } from "../constants/enums.ts";
 import axios from "axios";
 import { API_BASE_URL } from "../constants/constants.ts";
 import { mainModalStyle } from "../constants/default-theme.ts";

@@ -91,11 +91,7 @@ function RecipePage() {
         </Box>
         <Box>
           <Typography variant="h3">Instructions</Typography>
-          <ol>
-            {data.steps.map((step, index) => (
-              <li key={index}>{step}</li>
-            ))}
-          </ol>
+          <Typography>{data.steps}</Typography>
         </Box>
         <Paper
           elevation={3}
