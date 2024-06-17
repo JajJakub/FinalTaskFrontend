@@ -1,6 +1,5 @@
 import Header from "../components/header.tsx";
 import { Box, Container, Paper, Typography } from "@mui/material";
-
 import { API_BASE_URL } from "../constants/constants.ts";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -10,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import DishTimeDifficulty from "../components/dish-time-difficulty.tsx";
 import MySearch from "../components/search.tsx";
 import { CuisineTypeEnum, DifficultyTypeEnum } from "../constants/enums.ts";
+import HeaderButton from "../components/header-button.tsx";
 
 function MainPage() {
   const navigate = useNavigate();
@@ -66,11 +66,9 @@ function MainPage() {
     };
   }, [searchString, cuisineSelect, difficultySelect]);
 
-  const handleOnRegisterLogout = () => {
+  const handleOnRegisterProfile = () => {
     if (sessionStorage.getItem("token")) {
-      sessionStorage.removeItem("sub");
-      sessionStorage.removeItem("token");
-      navigate("/");
+      navigate("/profile");
     } else {
       navigate("register");
     }
@@ -81,32 +79,12 @@ function MainPage() {
 
   return (
     <>
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box sx={{ display: "flex", alignItems: "center" }} component="header">
         <Header />
-        <Box
-          sx={{
-            width: "8vw",
-            border: "2px solid",
-            borderColor: "action.active",
-            display: "flex",
-            justifyContent: "center",
-            mx: 5,
-            borderRadius: "10px",
-          }}
-          onClick={handleOnRegisterLogout}
-        >
-          <Typography
-            variant="h4"
-            sx={{
-              color: "primary.main",
-              width: 1,
-              textAlign: "center",
-              py: 1,
-            }}
-          >
-            {sessionStorage.getItem("token") ? "Logout" : "Sign in"}
-          </Typography>
-        </Box>
+        <HeaderButton
+          handleAction={handleOnRegisterProfile}
+          name={sessionStorage.getItem("token") ? "Profile" : "Sign in"}
+        />
       </Box>
 
       <Box sx={{ width: 1 }}>
@@ -117,7 +95,7 @@ function MainPage() {
         ></Box>
       </Box>
 
-      <Container sx={{ width: "80%" }}>
+      <Container sx={{ width: "80%", mb: 3 }}>
         <MySearch
           onSearch={setSearchString}
           onSelectCuisine={setCuisineSelect}
@@ -125,6 +103,7 @@ function MainPage() {
         />
         <Box
           sx={{
+            mt: 1,
             pt: 3,
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",

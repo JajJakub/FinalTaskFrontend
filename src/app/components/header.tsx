@@ -9,7 +9,6 @@ function Header() {
         height: "10vh",
         alignItems: "center",
       }}
-      component="header"
     >
       <Box sx={{ width: 1, bgcolor: "primary.main", height: "3px" }}></Box>
       <Box

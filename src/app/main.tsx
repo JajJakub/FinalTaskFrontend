@@ -11,6 +11,7 @@ import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 import MainPage from "./pages/main-page.tsx";
 import RecipePage from "./pages/recipe-page.tsx";
 import NotFound from "./pages/not-found.tsx";
+import ProfilePage from "./pages/profile-page.tsx";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
@@ -19,6 +20,7 @@ if (process.env.NODE_ENV === "production") disableReactDevTools();
 const router = createBrowserRouter([
   { path: "/", element: <MainPage />, errorElement: <NotFound /> },
   { path: "/register", element: <RegisterPage /> },
+  { path: "/profile", element: <ProfilePage /> },
   { path: "/error", element: <NotFound /> },
   { path: "/recipe/:id", element: <RecipePage /> },
 ]);

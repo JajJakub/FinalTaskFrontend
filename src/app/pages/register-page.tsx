@@ -8,6 +8,7 @@ import { API_BASE_URL } from "../constants/constants.ts";
 import { mainModalStyle } from "../constants/default-theme.ts";
 import { ErrorData } from "../constants/types.ts";
 import { useNavigate } from "react-router-dom";
+import HeaderButton from "../components/header-button.tsx";
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -33,6 +34,10 @@ function RegisterPage() {
     }
   };
   const handleModalClose = () => setModalState(false);
+
+  const handleMainClick = () => {
+    navigate("/");
+  };
 
   const fetchData = (userData: {
     username: string;
@@ -72,16 +77,22 @@ function RegisterPage() {
 
   return (
     <>
-      <Header />
-
-      <Container sx={{ width: "75%" }}>
+      <Box
+        sx={{ display: "flex", flexDirection: "rows", alignItems: "center" }}
+        component="header"
+      >
+        <Header />
+        <HeaderButton handleAction={handleMainClick} name={"Main"} />
+      </Box>
+      <Container sx={{ width: "80%" }}>
         <Box
           component="form"
           onSubmit={handleFormSubmit}
           sx={{
-            width: "80%",
             display: "flex",
             flexDirection: "column",
+            alignItems: "center",
+            width: 1,
           }}
         >
           <LoginRegister mode={setAuthMode} />
@@ -90,11 +101,14 @@ function RegisterPage() {
 
       <Modal open={modalState} onClose={handleModalClose}>
         <Box sx={mainModalStyle}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id="modal-modal-title" variant="h4">
             {`Error ` + errorMessages?.code}
           </Typography>
 
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography
+            id="modal-modal-description"
+            sx={{ mt: 2, fontSize: "1.6rem" }}
+          >
             {`Error messages: ` + errorMessages?.messages}
           </Typography>
         </Box>

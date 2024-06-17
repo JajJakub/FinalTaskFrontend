@@ -7,13 +7,12 @@ export type Ingredient = {
   product: string;
   quantity: number;
   measureType: string;
-  _id: string;
 };
 
 export type Comment = {
+  _id: string;
   authorName: string;
   commentBody: string;
-  _id: string;
   commentDate: Date;
 };
 

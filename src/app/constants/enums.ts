@@ -17,3 +17,14 @@ export enum DifficultyTypeEnum {
   Medium = "medium",
   Hard = "hard",
 }
+
+export enum MeasureTypeEnum {
+  Pieces = "pcs",
+  Kilogram = "kg",
+  Gram = "g",
+  Liter = "l",
+  Milliliter = "ml",
+  Cup = "cup",
+  Tablespoon = "tbsp",
+  Teaspoon = "tsp",
+}
